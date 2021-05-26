@@ -11,7 +11,7 @@ class OnBoard extends StatefulWidget {
 }
 
 class _OnBoardState extends State<OnBoard> {
-  int currenttIndex = 0;
+  int currentIndex = 0;
   late PageController _pageController;
   List<OnboardModel> screens = <OnboardModel>[
     OnboardModel(
@@ -63,9 +63,9 @@ class _OnBoardState extends State<OnBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: currenttIndex % 2 == 0 ? kwhite : kblue,
+      backgroundColor: currentIndex % 2 == 0 ? kwhite : kblue,
       appBar: AppBar(
-        backgroundColor: currenttIndex % 2 == 0 ? kwhite : kblue,
+        backgroundColor: currentIndex % 2 == 0 ? kwhite : kblue,
         elevation: 0.0,
         actions: [
           TextButton(
@@ -77,7 +77,7 @@ class _OnBoardState extends State<OnBoard> {
             child: Text(
               "Skip",
               style: TextStyle(
-                color: currenttIndex % 2 == 0 ? kblack : kwhite,
+                color: currentIndex % 2 == 0 ? kblack : kwhite,
               ),
             ),
           )
@@ -91,7 +91,7 @@ class _OnBoardState extends State<OnBoard> {
             physics: NeverScrollableScrollPhysics(),
             onPageChanged: (int index) {
               setState(() {
-                currenttIndex = index;
+                currentIndex = index;
               });
             },
             itemBuilder: (_, index) {
@@ -113,10 +113,10 @@ class _OnBoardState extends State<OnBoard> {
                             children: [
                               Container(
                                 margin: EdgeInsets.symmetric(horizontal: 3.0),
-                                width: currenttIndex == index ? 25 : 8,
+                                width: currentIndex == index ? 25 : 8,
                                 height: 8,
                                 decoration: BoxDecoration(
-                                  color: currenttIndex == index
+                                  color: currentIndex == index
                                       ? kbrown
                                       : kbrown300,
                                   borderRadius: BorderRadius.circular(10.0),
